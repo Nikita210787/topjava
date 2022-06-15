@@ -12,6 +12,11 @@ public class User extends AbstractNamedEntity {
 
     private String password;
 
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
     private boolean enabled = true;
 
     private Date registered = new Date();
