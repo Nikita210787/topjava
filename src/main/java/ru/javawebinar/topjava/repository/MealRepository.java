@@ -4,8 +4,10 @@ import ru.javawebinar.topjava.model.Meal;
 
 import java.util.Collection;
 
-// TODO add userId
+
 public interface MealRepository {
+    Collection<Meal> getByUserId(Integer id);
+
     // null if updated meal does not belong to userId
     Meal save(Meal meal);
 
@@ -17,4 +19,5 @@ public interface MealRepository {
 
     // ORDERED dateTime desc
     Collection<Meal> getAll();
+
 }

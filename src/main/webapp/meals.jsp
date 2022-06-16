@@ -25,6 +25,7 @@
     <br><br>
     <table border="1" cellpadding="8" cellspacing="0">
         <thead>
+
         <tr>
             <th>Date</th>
             <th>Description</th>
