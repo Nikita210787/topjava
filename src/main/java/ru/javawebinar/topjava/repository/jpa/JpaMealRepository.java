@@ -13,13 +13,15 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
+@Transactional(readOnly = true)
 public class JpaMealRepository implements MealRepository {
+
 
     @PersistenceContext
     private EntityManager em;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = false)
     public Meal save(Meal meal, int userId) {
         if (meal.isNew()) {
             User user = em.getReference(User.class, userId);
@@ -32,6 +34,7 @@ public class JpaMealRepository implements MealRepository {
     }
 
     @Override
+    @Transactional(readOnly = false)
     public boolean delete(int id, int userId) {
 /*      Meal ref = em.getReference(Meal.class, id);
         em.remove(ref);
@@ -58,7 +61,7 @@ public class JpaMealRepository implements MealRepository {
         return em.createNamedQuery(Meal.ALL_BY_USER_ID_BETWEEN,Meal.class).
                 setParameter(1, startDateTime)
                 .setParameter(2, endDateTime)
-                .setParameter(2, userId).getResultList();
+                .setParameter(3, userId).getResultList();
 
     }
 }

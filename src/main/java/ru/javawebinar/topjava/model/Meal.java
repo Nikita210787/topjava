@@ -14,9 +14,9 @@ import java.time.LocalTime;
 
 @NamedQueries({
         @NamedQuery(name = Meal.DELETE, query = "DELETE FROM Meal m WHERE m.id=:id "),
-        @NamedQuery(name = Meal.ALL_BY_USER_ID, query = "SELECT m FROM Meal m WHERE m.user=:userId"),
+        @NamedQuery(name = Meal.ALL_BY_USER_ID, query = "SELECT m FROM Meal m WHERE m.user.id=:userId"),
         @NamedQuery(name = Meal.ALL_BY_USER_ID_BETWEEN, query = "SELECT mb FROM Meal mb WHERE " +
-                "(mb.dateTime BETWEEN ?1 AND ?2) AND (mb.user=?3)")
+                "(mb.dateTime BETWEEN ?1 AND ?2) AND (mb.user.id=?3)")
 
 })
 
